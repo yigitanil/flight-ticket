@@ -8,11 +8,11 @@ import org.mapstruct.Mappings;
 
 @Mapper
 public interface FlightMapper {
-    @Mapping(target = "rota", source = "rotaDto")
+    @Mapping(target = "route", source = "routeDto")
     Flight flightDtoToFlight(FlightDto flightDto);
 
     @Mappings({
-            @Mapping(target = "rotaDto", source = "rota")
+            @Mapping(target = "routeDto", source = "route")
     })
     FlightDto flightToFlightDto(Flight flight);
 }

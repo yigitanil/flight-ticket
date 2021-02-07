@@ -1,20 +1,16 @@
 package com.finartz.flightticket.domain;
 
+import com.finartz.flightticket.domain.base.BaseEntity;
 import lombok.*;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
-public class Payment {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Payment extends BaseEntity {
     private Long id;
 
     private String creditCardNumber;

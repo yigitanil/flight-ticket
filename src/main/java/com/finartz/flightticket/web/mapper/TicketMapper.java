@@ -16,8 +16,8 @@ public interface TicketMapper {
     @Mappings({
             @Mapping(target = "airlineName", source = "flight.airline.airlineName"),
             @Mapping(target = "flightNo", source = "flight.flightNo"),
-            @Mapping(target = "departureLine", source = "flight.rota.departureLine.airportName"),
-            @Mapping(target = "arrivalLine", source = "flight.rota.arrivalLine.airportName"),
+            @Mapping(target = "departureLine", source = "flight.route.departureLine.airportName"),
+            @Mapping(target = "arrivalLine", source = "flight.route.arrivalLine.airportName"),
             @Mapping(target = "dateTime", source = "flight.date"),
             @Mapping(target = "creditCardNumber", source = "payment.creditCardNumber")
     })

@@ -1,6 +1,7 @@
 package com.finartz.flightticket.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.finartz.flightticket.domain.base.BaseEntity;
 import lombok.*;
 
 import javax.persistence.*;
@@ -12,9 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Ticket {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Ticket extends BaseEntity {
     private Long id;
     private String pnrNo;
 

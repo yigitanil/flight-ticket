@@ -1,5 +1,6 @@
 package com.finartz.flightticket.domain;
 
+import com.finartz.flightticket.domain.base.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,10 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Rota {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Route extends BaseEntity {
 
     @OneToOne
     private Airport departureLine;

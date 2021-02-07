@@ -1,6 +1,6 @@
 package com.finartz.flightticket.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.finartz.flightticket.domain.base.BaseEntity;
 import lombok.*;
 
 import javax.persistence.*;
@@ -15,19 +15,16 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Flight {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Flight extends BaseEntity {
+
 
     private String flightNo;
 
-    @JsonIgnore
     @ManyToOne
     private Airline airline;
 
     @OneToOne
-    private Rota rota;
+    private Route route;
 
     private LocalDateTime date;
 

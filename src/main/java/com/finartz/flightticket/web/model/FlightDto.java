@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 public class FlightDto {
     private Long id;
     private String flightNo;
-    private RotaDto rotaDto;
+    private RouteDto routeDto;
 
     @JsonFormat(pattern="yyyy-MM-dd HH:mm")
     private LocalDateTime date;

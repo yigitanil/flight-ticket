@@ -2,7 +2,7 @@ package com.finartz.flightticket.bootsrap;
 
 import com.finartz.flightticket.domain.*;
 import com.finartz.flightticket.repository.*;
-import com.finartz.flightticket.web.mapper.RotaMapper;
+import com.finartz.flightticket.web.mapper.RouteMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -19,9 +19,9 @@ import java.util.Set;
 public class DataLoader implements ApplicationRunner {
     private final AirportRepository airportService;
     private final AirlineRepository airlineService;
-    private final RotaRepository rotaService;
+    private final RouteRepository rotaService;
     private final FlightRepository flightService;
-    private final RotaMapper rotaMapper;
+    private final RouteMapper routeMapper;
     private final TicketRepository ticketRepository;
 
     @Transactional
@@ -44,19 +44,19 @@ public class DataLoader implements ApplicationRunner {
 
             airportService.save(dalamanAirport);
 
-            Rota ataturkToDalamanRota = Rota.builder()
+            Route ataturkToDalamanRoute = Route.builder()
                     .departureLine(ataturkAirport)
                     .arrivalLine(dalamanAirport)
                     .build();
 
-            rotaService.save(ataturkToDalamanRota);
+            rotaService.save(ataturkToDalamanRoute);
 
-            Rota dalamanToAtaturkRota = Rota.builder()
+            Route dalamanToAtaturkRoute = Route.builder()
                     .departureLine(dalamanAirport)
                     .arrivalLine(ataturkAirport)
                     .build();
 
-            rotaService.save(dalamanToAtaturkRota);
+            rotaService.save(dalamanToAtaturkRoute);
 
             Set<Flight> flights = new HashSet<>();
             Flight flight = Flight.builder()
@@ -64,7 +64,7 @@ public class DataLoader implements ApplicationRunner {
                     .quota(100)
                     .basedFlightPrice(new BigDecimal(100))
                     .flightPrice(new BigDecimal(100))
-                    .rota(ataturkToDalamanRota)
+                    .route(ataturkToDalamanRoute)
                     .date(LocalDateTime.now())
                     .build();
             flights.add(flight);
